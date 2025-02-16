@@ -8,10 +8,10 @@ let configOptions = {
     // General stuff
     'ai': {
         'defaultGPTProvider': "openai",
-        'defaultTemperature': 0.9,
-        'enhancements': true,
+        'defaultTemperature': 0,
+        'enhancements': false,
         'useHistory': true,
-        'safety': true,
+        'safety': false,
         'writingCursor': " ...", // Warning: Using weird characters can mess up Markdown rendering
         'proxyUrl': null, // Can be "socks5://127.0.0.1:9050" or "http://127.0.0.1:8080" for example. Leave it blank if you don't need it.
     },
@@ -137,7 +137,7 @@ let configOptions = {
         // For seconds, add "%S" and set interval to 1000
         'format': "%H:%M",
         'interval': 5000,
-        'dateFormatLong': "%A, %d/%m", // On bar
+        'dateFormatLong': "%m/%d, %A", // On bar
         'dateInterval': 5000,
         'dateFormat': "%d/%m", // On notif time
     },
