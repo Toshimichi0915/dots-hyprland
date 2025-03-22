@@ -65,7 +65,8 @@ export default ({ id = 0 }) => {
     const logoutButton = SessionButton(getString('Logout'), 'logout', () => { closeWindowOnAllMonitors('session'); execAsync(['bash', '-c', 'pkill Hyprland || pkill sway || pkill niri || loginctl terminate-user $USER']).catch(print) }, {}, 2);
     const sleepButton = SessionButton(getString('Sleep'), 'sleep', () => { closeWindowOnAllMonitors('session'); execAsync(['bash', '-c', 'systemctl suspend || loginctl suspend']).catch(print) }, {}, 3);
     // hibernate, shutdown, reboot
-    const hibernateButton = SessionButton(getString('Hibernate'), 'downloading', () => { closeWindowOnAllMonitors('session'); execAsync(['bash', '-c', 'systemctl hibernate || loginctl hibernate']).catch(print) }, {}, 4);
+    // const hibernateButton = SessionButton(getString('Hibernate'), 'downloading', () => { closeWindowOnAllMonitors('session'); execAsync(['bash', '-c', 'systemctl hibernate || loginctl hibernate']).catch(print) }, {}, 4);
+    const hibernateButton = SessionButton(getString('Hibernate'), 'downloading', () => { closeWindowOnAllMonitors('session'); execAsync(['bash', '-c', 'sleep 1 && hyprctl dispatch dpms off']).catch(print) }, {}, 4);
     const shutdownButton = SessionButton(getString('Shutdown'), 'power_settings_new', () => { closeWindowOnAllMonitors('session'); execAsync(['bash', '-c', 'systemctl poweroff || loginctl poweroff']).catch(print) }, {}, 5);
     const rebootButton = SessionButton(getString('Reboot'), 'restart_alt', () => { closeWindowOnAllMonitors('session'); execAsync(['bash', '-c', 'systemctl reboot || loginctl reboot']).catch(print) }, {}, 6);
     const cancelButton = SessionButton(getString('Cancel'), 'close', () => closeWindowOnAllMonitors('session'), { className: 'session-button-cancel' }, 7);

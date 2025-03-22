@@ -14,7 +14,7 @@ const PROVIDERS = Object.assign({ // There's this list hmm https://github.com/zu
         'base_url': 'https://api.openai.com/v1/chat/completions',
         'key_get_url': 'https://platform.openai.com/api-keys',
         'key_file': 'openai_key.txt',
-        'model': 'gpt-3.5-turbo',
+        'model': 'gpt-4.5-turbo',
     },
     'ollama': {
         'name': 'Ollama (Llama 3)',
@@ -142,7 +142,7 @@ class GPTService extends Service {
         });
     }
 
-    _assistantPrompt = true;
+    _assistantPrompt = userOptions.ai.enhancements;
     _currentProvider = userOptions.ai.defaultGPTProvider;
     _requestCount = 0;
     _temperature = userOptions.ai.defaultTemperature;

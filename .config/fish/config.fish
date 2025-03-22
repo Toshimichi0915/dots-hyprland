@@ -23,3 +23,7 @@ alias pamcan=pacman
 #   set_color cyan; echo (pwd)
 #   set_color green; echo '> '
 # end
+
+function nvm
+    bass source ~/.nvm/nvm.sh --no-use ';' nvm $argv
+end

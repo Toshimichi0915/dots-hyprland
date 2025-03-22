@@ -95,7 +95,7 @@ export function execAndClose(command, terminal) {
 }
 
 export function couldBeMath(str) {
-    const regex = /^[0-9.+*/-]/;
+    const regex = /^[0-9.+*/-\\(\\)]/;
     return regex.test(str);
 }
 
