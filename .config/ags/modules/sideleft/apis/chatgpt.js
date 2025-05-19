@@ -183,7 +183,7 @@ const GPTSettings = () => MarginRevealer({
                     { value: 0.50, name: getString('Balanced'), },
                     { value: 1.00, name: getString('Creative'), },
                 ],
-                initIndex: 1,
+                initIndex: 0,
                 onChange: (value, name) => {
                     GPTService.temperature = value;
                 },
