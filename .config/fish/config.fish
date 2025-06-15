@@ -26,3 +26,7 @@ alias clear "printf '\033[2J\033[3J\033[1;1H'"
 #   set_color cyan; echo (pwd)
 #   set_color green; echo '> '
 # end
+
+function nvm
+    bass source ~/.nvm/nvm.sh --no-use ';' nvm $argv
+end
