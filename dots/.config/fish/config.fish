@@ -13,8 +13,10 @@ if status is-interactive # Commands to run in interactive sessions can go here
 
     # Use starship
     starship init fish | source
-    if test -f ~/.local/state/quickshell/user/generated/terminal/sequences.txt
-        cat ~/.local/state/quickshell/user/generated/terminal/sequences.txt
+    if [ "$TERM_PROGRAM" != "tmux" ]
+        if test -f ~/.local/state/quickshell/user/generated/terminal/sequences.txt
+            cat ~/.local/state/quickshell/user/generated/terminal/sequences.txt
+        end
     end
 
     # Aliases
@@ -24,3 +26,8 @@ if status is-interactive # Commands to run in interactive sessions can go here
     alias q 'qs -c ii'
     
 end
+
+function nvm
+    bass source ~/.nvm/nvm.sh --no-use ';' nvm $argv
+end
+
