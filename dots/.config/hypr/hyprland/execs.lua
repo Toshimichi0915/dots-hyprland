@@ -11,6 +11,8 @@ hl.on("hyprland.start", function ()
     hl.exec_cmd("hypridle")
     hl.exec_cmd("dbus-update-activation-environment --all")
     hl.exec_cmd("sleep 1 && dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP") -- Some fix idk
+    -- Activate graphical-session.target so xdg-desktop-portal can start (GTK4/libadwaita apps like Nautilus read dark mode from the portal)
+    hl.exec_cmd("sleep 1 && systemctl --user start hyprland-session.target")
 
     -- Audio
     hl.exec_cmd("easyeffects --hide-window --service-mode")

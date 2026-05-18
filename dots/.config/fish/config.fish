@@ -13,8 +13,10 @@ if status is-interactive
     end
     
     # Colors
-    if test -f ~/.local/state/quickshell/user/generated/terminal/sequences.txt
-        cat ~/.local/state/quickshell/user/generated/terminal/sequences.txt
+    if [ "$TERM_PROGRAM" != "tmux" ]
+        if test -f ~/.local/state/quickshell/user/generated/terminal/sequences.txt
+            cat ~/.local/state/quickshell/user/generated/terminal/sequences.txt
+        end
     end
 
     # Aliases
@@ -31,3 +33,8 @@ if status is-interactive
         alias ssh 'kitten ssh'
     end
 end
+
+function nvm
+    bass source ~/.nvm/nvm.sh --no-use ';' nvm $argv
+end
+
